@@ -5,6 +5,9 @@ import { Document } from 'mongoose';
 export class DocumentEntity extends Document {
   @Prop({ required: true })
   title: string;
+  
+  @Prop()
+  titleNoAccent?: string;
 
   @Prop()
   description: string;

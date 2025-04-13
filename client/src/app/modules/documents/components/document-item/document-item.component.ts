@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Document } from '../../document.model';
 import { DocumentService } from '../../document.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-document-item',
@@ -12,7 +13,9 @@ export class DocumentItemComponent {
   @Input() document!: Document;
   @Output() delete = new EventEmitter<string>();
 
-  constructor(private documentService: DocumentService) {}
+  constructor(
+    private documentService: DocumentService,
+    private sanitizer: DomSanitizer,) {}
 
   onDeleteDocument(documentId: string) {
     this.documentService.deleteDocument(documentId).subscribe(() => {
@@ -20,5 +23,9 @@ export class DocumentItemComponent {
     }, error => {
       console.error('Error deleting document:', error);
     });
+  }
+
+  safeHtml(html: string) {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 }

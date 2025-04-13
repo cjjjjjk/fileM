@@ -1,9 +1,10 @@
 <div class="xss-list-container position-fixed border-start border-1" *ngIf="xssListService.isVisible$ | async">
 <h3 class="w-100 d-flex gap-3 align-items-center p-3">
-    {{"danh sách query" | uppercase}}
-    <button class="btn-close ms-auto" 
+    {{"xss script" | uppercase}}
+    <button class="btn-close ms-auto d-flex align-items-center justify-content-center" 
         (click)="xssListService.hide()"
         aria-label="Close">
+      ✖
     </button>
 </h3>
 <div class="list-group p-3 d-flex flex-column gap-3">

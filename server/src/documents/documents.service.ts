@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { DocumentEntity } from './schemas/document.schema';
+import { removeVietnameseTones } from 'src/utils/nomalizeVN';
 
 @Injectable()
 export class DocumentsService {
@@ -11,7 +12,8 @@ export class DocumentsService {
   ) {}
 
   async create(data: Partial<DocumentEntity>) {
-    const doc = new this.documentModel(data);
+    const titleNoAccent = removeVietnameseTones(data.title || '');
+    const doc = new this.documentModel({ ...data, titleNoAccent });
     return doc.save();
   }
 
@@ -28,11 +30,14 @@ export class DocumentsService {
   }
 
   async searchByTitle(keyword: string) {
-    return this.documentModel
-      .find({
-        title: { $regex: keyword, $options: 'i' },
-      })
-      .exec();
+    const cleanKeyword = removeVietnameseTones(keyword.trim().toLowerCase());
+  
+    return this.documentModel.find({
+      $or: [
+        { titleNoAccent: { $regex: cleanKeyword, $options: 'i' } },
+        { title: { $regex: keyword, $options: 'i' } }, 
+      ],
+    }).exec();
   }
   
 }

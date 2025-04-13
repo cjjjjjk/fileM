@@ -7,8 +7,12 @@
     >Xóa</button>
   </div>
   <span>
-    [innerHTML]:
+    [innerHTML - mặc định]:
     <em [innerHTML]="document.description"></em><br />
+  </span>
+  <span>
+    [innerHTML - bypass]:
+    <em [innerHTML]="safeHtml(document.description || '')"></em><br />
   </span>
   <span>[binding]:
     {{ document.description }}

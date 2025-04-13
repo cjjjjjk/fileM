@@ -16,6 +16,7 @@
       class="form-control flex-grow-1" 
       placeholder="Tìm kiếm tài liệu..." 
       [(ngModel)]="searchTerm"  
+      (keyup.enter)="onSearchTermChange()"
     />
     <div class="d-flex gap-2">
       <button class="btn btn-primary text-nowrap"
