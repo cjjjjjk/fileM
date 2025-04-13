@@ -1,0 +1,8 @@
+<h2>Danh sách tài liệu</h2>
+<ul>
+  <li *ngFor="let doc of documents">
+    <strong>{{ doc.title }}</strong><br />
+    <em [innerHTML]="doc.description"></em><br/>
+    <a [href]="doc.fileUrl" target="_blank">Xem tài liệu</a>
+  </li>
+</ul>
