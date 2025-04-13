@@ -16,4 +16,8 @@ export class DocumentService {
   getDocuments(): Observable<Document[]> {
     return this.http.get<Document[]>(this.apiUrl);
   }
+
+  deleteDocument(documentId: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${documentId}`);
+  }
 }

@@ -17,4 +17,8 @@ export class DocumentListComponent implements OnInit {
       this.documents = docs;
     });
   }
+
+  onDocumentDeleted(documentId: string) {
+    this.documents = this.documents.filter(doc => doc._id !== documentId);
+  }
 }

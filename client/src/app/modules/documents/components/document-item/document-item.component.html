@@ -1,0 +1,17 @@
+<div class="d-flex flex-column justify-content-start align-items-start p-3 border">
+  <div class="w-100 d-flex">
+    <strong>{{ document.title }}</strong><br />
+    <button class="btn btn-outline-danger ms-auto"
+      (click)="onDeleteDocument(document._id)"
+      *ngIf="document._id"
+    >Xóa</button>
+  </div>
+  <span>
+    [innerHTML]:
+    <em [innerHTML]="document.description"></em><br />
+  </span>
+  <span>[binding]:
+    {{ document.description }}
+  </span>
+  <a [href]="document.fileUrl" target="_blank">Xem tài liệu</a>
+</div>
