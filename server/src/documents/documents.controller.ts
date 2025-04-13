@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Query } from '@nestjs/common';
 import { DocumentsService } from './documents.service';
 
 @Controller('documents')
@@ -11,7 +11,10 @@ export class DocumentsController {
   }
 
   @Get()
-  findAll() {
+  async findAll(@Query('query') q?: string) {
+    if (q) {
+      return this.documentsService.searchByTitle(q);
+    }
     return this.documentsService.findAll();
   }
 

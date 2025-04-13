@@ -17,6 +17,11 @@ export class DocumentService {
     return this.http.get<Document[]>(this.apiUrl);
   }
 
+  getDocumentsByTitle(keyword: string): Observable<Document[]> {
+    const url = `${this.apiUrl}?query=${encodeURIComponent(keyword)}`;
+    return this.http.get<Document[]>(url);
+  }
+
   deleteDocument(documentId: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${documentId}`);
   }

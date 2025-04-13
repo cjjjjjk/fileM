@@ -1,9 +1,47 @@
-<h2 class="p-3">{{"Danh sách tài liệu"| uppercase}}</h2>
-<div class="h-100 w-50 p-3">
-  <ng-container *ngFor="let doc of documents">
+<h2 class="p-3 d-flex flex-row gap-3 border-bottom border-1 align-items-center"> 
+  <img 
+    class="logo"
+    (click)="navigate('/home')"
+    src="./favicon.ico" alt=""
+  > 
+  {{"Danh sách tài liệu"| uppercase}}
+  <button class="ms-auto btn btn-outline-primary"
+    (click)="showList()"
+  >XSS-queryList</button>
+</h2>
+<div class="doc-list w-50 p-3">
+  <div class="w-100 d-flex flex-row gap-2 mb-3">
+    <input 
+      type="text" 
+      class="form-control flex-grow-1" 
+      placeholder="Tìm kiếm tài liệu..." 
+      [(ngModel)]="searchTerm"  
+    />
+    <div class="d-flex gap-2">
+      <button class="btn btn-primary text-nowrap"
+      (click)="onSearchTermChange()"
+      >Tìm kiếm</button>
+      <button
+        class="btn btn-outline-primary text-nowrap"
+        (click)="onSearchTermChange(true)"
+      >
+        Sync
+      </button>
+    </div>
+  </div>
+  <div class="w-100 d-flex flex-row gap-2 mb-3">
+    [Câu truy vấn - mặc định]:
+    <span [innerHTML]="searchTerm"></span>
+  </div>
+  <div class="w-100 d-flex flex-row gap-2 mb-3">
+    [Câu truy vấn - bypass]:
+    <span [innerHTML]="safeHtml(searchTerm)"></span>
+  </div>
+  <ng-container *ngFor="let doc of filteredDocuments.slice().reverse()">
     <app-document-item 
       [document]="doc" 
       (delete)="onDocumentDeleted($event)">
     </app-document-item>
   </ng-container>
+  <app-xss-scripts-list></app-xss-scripts-list>
 </div>

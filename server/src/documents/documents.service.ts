@@ -26,4 +26,13 @@ export class DocumentsService {
   async delete(id: string) {
     return this.documentModel.findByIdAndDelete(id).exec();
   }
+
+  async searchByTitle(keyword: string) {
+    return this.documentModel
+      .find({
+        title: { $regex: keyword, $options: 'i' },
+      })
+      .exec();
+  }
+  
 }
