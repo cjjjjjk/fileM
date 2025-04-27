@@ -11,17 +11,20 @@ export class DocumentsController {
   }
 
   @Get()
-  async findAll(@Query('query') q?: string) {
-    if (q) {
-      return this.documentsService.searchByTitle(q);
+  async findAll(@Query('query') q?: string, @Query('id') id?: string) {
+    if (id) {
+      return this.documentsService.findById(id);  
     }
-    return this.documentsService.findAll();
+    if (q) {
+      return this.documentsService.searchByTitle(q); 
+    }
+    return this.documentsService.findAll(); 
   }
 
   @Get(':id')
   findById(@Param('id') id: string) {
     return this.documentsService.findById(id);
-  }
+  } 
 
   @Delete(':id')
   delete(@Param('id') id: string) {

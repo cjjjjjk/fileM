@@ -1,4 +1,6 @@
-<div class="d-flex flex-column justify-content-start align-items-start p-3 border">
+<div class="d-flex flex-column justify-content-start align-items-start p-3 border"
+  (click)="navigate()"
+>
   <div class="w-100 d-flex">
     <strong>{{ document.title }}</strong><br />
     <button class="btn btn-outline-danger ms-auto"
@@ -7,15 +9,9 @@
     >Xóa</button>
   </div>
   <span>
-    [innerHTML - mặc định]:
-    <em [innerHTML]="document.description"></em><br />
-  </span>
-  <span>
-    [innerHTML - bypass]:
     <em [innerHTML]="safeHtml(document.description || '')"></em><br />
   </span>
-  <span>[binding]:
-    {{ document.description }}
+  <span class="d-flex flex-row gap-2">
+    <a [href]="document.fileUrl" target="_blank">Xem tài liệu</a>
   </span>
-  <a [href]="document.fileUrl" target="_blank">Xem tài liệu</a>
 </div>

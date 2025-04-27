@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trang B - Click nhận quà</title>
+  <style>
+    iframe {
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      z-index: 2;
+    }
+    #fake-btn {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      z-index: 1;
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Click vào nút để nhận quà!</h2>
+  <div id="fake-btn">Nhận quà ngay!</div>
+  <iframe src="http://localhost:4200/" style="width: 90%; height: 90%;"></iframe>
+</body>
+</html>

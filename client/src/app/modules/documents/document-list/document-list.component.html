@@ -38,11 +38,26 @@
     [Câu truy vấn - bypass]:
     <span [innerHTML]="safeHtml(searchTerm)"></span>
   </div>
-  <ng-container *ngFor="let doc of filteredDocuments.slice().reverse()">
-    <app-document-item 
-      [document]="doc" 
-      (delete)="onDocumentDeleted($event)">
-    </app-document-item>
-  </ng-container>
+  <div *ngIf="loading" class="text-center my-3">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p>Loading...</p>
+  </div>
+  <div *ngIf="!loading">
+    <ng-container *ngIf="filteredDocuments.length > 0; else noResults">
+      <ng-container *ngFor="let doc of filteredDocuments.slice().reverse()">
+        <app-document-item 
+          [document]="doc" 
+          (delete)="onDocumentDeleted($event)">
+        </app-document-item>
+      </ng-container>
+    </ng-container>
+    <ng-template #noResults>
+      <div class="alert alert-warning text-center" role="alert">
+        Không tìm thấy tài liệu nào.
+      </div>
+    </ng-template>
+  </div>
   <app-xss-scripts-list></app-xss-scripts-list>
 </div>

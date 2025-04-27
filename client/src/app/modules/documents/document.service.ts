@@ -17,6 +17,10 @@ export class DocumentService {
     return this.http.get<Document[]>(this.apiUrl);
   }
 
+  getDocumentbyId(id: string): Observable<Document>{
+    return this.http.get<Document>(`${this.apiUrl}?id=${id}`)
+  }
+
   getDocumentsByTitle(keyword: string): Observable<Document[]> {
     const url = `${this.apiUrl}?query=${encodeURIComponent(keyword)}`;
     return this.http.get<Document[]>(url);
