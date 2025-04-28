@@ -17,6 +17,9 @@ export class DocumentEntity extends Document {
 
   @Prop({ default: Date.now })
   createdAt: Date;
+
+  @Prop({default: 0}) 
+  likeRate: number
 }
 
 export const DocumentSchema = SchemaFactory.createForClass(DocumentEntity);

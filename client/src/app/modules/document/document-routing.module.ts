@@ -4,7 +4,7 @@ import { DocumentComponent } from './document.component';
 
 const routes: Routes = [
   {
-    path: ':id', 
+    path: '', 
     component: DocumentComponent
   }
 ];

@@ -39,5 +39,25 @@ export class DocumentsService {
       ],
     }).exec();
   }
+
+  async likeUpdate(isLike: boolean, id: string) {
+    const doc = await this.documentModel.findById(id).exec();
+    if (!doc) {
+      throw new Error('Document not found');
+    }
   
+    if (doc.likeRate === undefined || doc.likeRate === null) {
+      doc.likeRate = 0;
+    }
+  
+    doc.likeRate += isLike ? 1 : -1;
+  
+    if (doc.likeRate < 0) {
+      doc.likeRate = 0;
+    }
+  
+    await doc.save();
+    return {resCode: 'success',_id: doc._id , likeCount: doc.likeRate};
+  }
+
 }

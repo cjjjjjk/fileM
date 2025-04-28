@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Query, Patch } from '@nestjs/common';
 import { DocumentsService } from './documents.service';
 
 @Controller('documents')
@@ -25,6 +25,14 @@ export class DocumentsController {
   findById(@Param('id') id: string) {
     return this.documentsService.findById(id);
   } 
+
+  @Patch(':id/like') 
+  likeUpdate(
+    @Param('id') id: string,
+    @Query('isLike') isLike: string, // Query string: isLike=true/false
+  ) {
+    return this.documentsService.likeUpdate(isLike === 'true', id);
+  }
 
   @Delete(':id')
   delete(@Param('id') id: string) {

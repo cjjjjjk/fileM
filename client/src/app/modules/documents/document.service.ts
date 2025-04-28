@@ -29,4 +29,9 @@ export class DocumentService {
   deleteDocument(documentId: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${documentId}`);
   }
+
+  updateLike(isLike: boolean, documentId: string): Observable<any> {
+    const url = `${this.apiUrl}/${documentId}/like?isLike=${isLike}`;
+    return this.http.patch<any>(url, {});
+  }
 }
