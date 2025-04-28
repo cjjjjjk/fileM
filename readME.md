@@ -1,6 +1,7 @@
 # FileM
 
-FileM là một ứng dụng quản lý tài liệu với giao diện người dùng sử dụng **Angular** và backend được xây dựng trên nền tảng **NestJS**. Ứng dụng cho phép người dùng tải lên và quản lý các tài liệu, đồng thời hiển thị các tài liệu dưới dạng danh sách với các thông tin liên quan như tiêu đề, mô tả và liên kết tải về.
+FileM là một ứng dụng quản lý tài liệu với giao diện người dùng sử dụng **Angular** và backend được xây dựng trên nền tảng **NestJS**.   
+Ứng dụng cho phép người dùng tải lên và quản lý các tài liệu, đồng thời hiển thị các tài liệu dưới dạng danh sách với các thông tin liên quan như tiêu đề, mô tả và liên kết tải về.  
 
 ## Nội dung
 
@@ -8,7 +9,8 @@ FileM là một ứng dụng quản lý tài liệu với giao diện người d
 - [Cài đặt Backend (NestJS)](#cài-đặt-backend-nestjs)
 - [Cài đặt Frontend (Angular)](#cài-đặt-frontend-angular)
 - [Cấu hình môi trường](#cấu-hình-môi-trường)
-- [Sử dụng](#sử-dụng)
+- [Sử dụng](#sử-dụng)  
+- [Minh hoạ triển khai tấn công XSS và ClickJacking](#minh-hoạ-triển-khai-tấn-công-xss-và-clickjacking)  
 - [Chạy ứng dụng](#chạy-ứng-dụng)
 - [Liên hệ](#liên-hệ)
 
@@ -104,6 +106,13 @@ Trước khi bắt đầu, bạn cần cài đặt các công cụ và phần m�
     ```
 
    Sau khi chạy cả hai, truy cập ứng dụng tại `http://localhost:4200` để sử dụng.
+
+## Minh hoạ tấn công XSS, CLICKJACKING  
+### ScreenShots
+![image](https://github.com/user-attachments/assets/db704d3b-15dd-4eae-b0e4-26558e3e88bf)  
+Trang mô phỏng clickjacking  
+![image](https://github.com/user-attachments/assets/c81bbf8c-af54-403f-96f3-da23cfe67f46)
+
 
 ## Liên hệ
 
