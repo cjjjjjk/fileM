@@ -18,39 +18,54 @@
       margin-bottom: 40px;
       color: #333;
     }
-
     #fake-btn {
-      position: relative;
-      width: 100px;
-      top: 15px;
-      margin: 0 auto;
-      padding: 5px 30px;
-      background-color: crimson;
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      text-align: center;
-      border-radius: 8px;
-      cursor: pointer;
-      z-index: 1;
-    }
+    position: relative;
+    width: 100px;
+    top: 15px;
+    margin: 0 auto;
+    padding: 5px 30px;
+    background-color: crimson;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1000; /* tăng cực cao */
+  }
 
-    iframe {
-      position: absolute;
+  iframe {
+    position: absolute;
+    top: 100px;
+    left: 75px;
+    width: 51%;
+    height: 200%;
+    border: none;
+    opacity: 0.1;
+    z-index: 1; /* thấp hơn nút */
+    pointer-events: auto; /* vẫn nhận sự kiện */
+  }
+  #url-input {
+      position: absolute; 
       top: 100px;
-      left: 75px ;
-      width: 51%;
-      height: 200%;
-      border: none;
-      opacity: 0.0001; 
-      z-index: 2;
-      pointer-events: auto;
+      left: 85%;
+      transform: translateX(-50%);
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+      opacity: 0.5; /* ẩn input */
+      transition: opacity 0.5s;
     }
   </style>
 </head>
 <body>
-  <h2>Click vào nút dưới để nhận quà cực sốc!</h2>
+  <h2>Click liên tục để nhận quà cực sốc!</h2>
   <div id="fake-btn">Nhận</div>
-  <iframe src="http://localhost:4200/document/680ef19c9172f121c7471455"></iframe>
+  <iframe src="http://localhost:4200/document/680ef34b50f8d50371a944bc"></iframe>
+  <input type="text" id="url-input" placeholder="Nhập URL và nhấn Enter">
+  <script src="./index.js"></script>
 </body>
 </html>

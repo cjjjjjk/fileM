@@ -3,18 +3,18 @@
       class="logo"
       src="./favicon.ico" alt=""
     > 
-    {{ (`Chi tiết: ${document.title ?? "Document title"}`) | uppercase }}
+    {{ document.title.length > 30 ? ('Chi tiết: ' + document.title.substring(0, 30) + '...') : ('Chi tiết: ' + document.title) | uppercase }}
     <button 
     class="btn" 
     [ngClass]="document.likeRate < 0 ? 'btn-outline-danger' : 'btn-outline-success'">
-    {{ document.likeRate + " 👍" }}
+    {{ document.likeRate + (document.likeRate > 0 ? ' 👍' : ' 👎') }}
   </button>      
     <div class="ms-auto d-flex gap-3">
     <button
         class="btn btn-outline-danger"
         (click)="upLike(false)"
     >
-        dislike
+        Không thích
     </button>   
     <button
         class="btn btn-success"
