@@ -10,7 +10,7 @@ FileM là một ứng dụng quản lý tài liệu với giao diện người d
 - [Cài đặt Frontend (Angular)](#cài-đặt-frontend-angular)
 - [Cấu hình môi trường](#cấu-hình-môi-trường)
 - [Sử dụng](#sử-dụng)  
-- [Minh hoạ triển khai tấn công XSS và ClickJacking](#minh-hoạ-triển-khai-tấn-công-xss-và-clickjacking)  
+- [Minh hoạ triển khai tấn công XSS và ClickJacking](#minh-hoạ-tấn-công-xss-clickjacking)  
 - [Chạy ứng dụng](#chạy-ứng-dụng)
 - [Liên hệ](#liên-hệ)
 
