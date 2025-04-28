@@ -4,5 +4,6 @@ export interface Document {
     description?: string;
     fileUrl?: string;
     createdAt?: string;
+    likeRate: number ;
   }
   

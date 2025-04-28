@@ -1,10 +1,16 @@
 <div class="d-flex flex-column justify-content-start align-items-start p-3 border"
   (click)="navigate()"
 >
-  <div class="w-100 d-flex">
-    <strong>{{ document.title }}</strong><br />
+  <div class="w-100 d-flex gap-2 justify-content-start align-items-center">
+    <strong>{{ document.title + " "}}</strong>
+    <button
+    class="btn" 
+    [ngClass]="document.likeRate < 0 ? 'btn-outline-danger' : 'btn-outline-success'">
+    {{ document.likeRate + (document.likeRate > 0 ? ' 👍' : ' 👎') }}
+    </button>
+    <br />
     <button class="btn btn-outline-danger ms-auto"
-      (click)="onDeleteDocument(document._id)"
+      (click)="onDeleteDocument(document._id, $event)"
       *ngIf="document._id"
     >Xóa</button>
   </div>

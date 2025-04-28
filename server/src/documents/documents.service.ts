@@ -18,7 +18,7 @@ export class DocumentsService {
   }
 
   async findAll() {
-    return this.documentModel.find().exec();
+    return this.documentModel.find().sort({ likeRate: 1 }).exec();
   }
 
   async findById(id: string) {
@@ -52,12 +52,8 @@ export class DocumentsService {
   
     doc.likeRate += isLike ? 1 : -1;
   
-    if (doc.likeRate < 0) {
-      doc.likeRate = 0;
-    }
-  
     await doc.save();
-    return {resCode: 'success',_id: doc._id , likeCount: doc.likeRate};
+    return {resCode: 'success', _id: doc._id , likeCount: doc.likeRate};
   }
 
 }

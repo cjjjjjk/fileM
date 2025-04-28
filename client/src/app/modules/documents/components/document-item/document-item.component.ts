@@ -19,7 +19,8 @@ export class DocumentItemComponent {
     private documentService: DocumentService,
     private sanitizer: DomSanitizer,) {}
 
-  onDeleteDocument(documentId: string) {
+  onDeleteDocument(documentId: string, e?: Event) {
+    if(e) e.stopPropagation();
     this.documentService.deleteDocument(documentId).subscribe(() => {
       this.delete.emit(documentId);
     }, error => {
