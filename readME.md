@@ -113,6 +113,9 @@ Trước khi bắt đầu, bạn cần cài đặt các công cụ và phần m�
 Trang mô phỏng clickjacking  
 ![image](https://github.com/user-attachments/assets/c81bbf8c-af54-403f-96f3-da23cfe67f46)
 
+Block clickjacking
+![image](https://github.com/user-attachments/assets/73160574-a4c1-4d98-8afa-99c719fde331)
+
 
 ## Liên hệ
 
