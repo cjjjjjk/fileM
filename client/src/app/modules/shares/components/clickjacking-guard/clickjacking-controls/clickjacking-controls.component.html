@@ -1,0 +1,11 @@
+<button
+  (click)="toggleCheck()"
+  class="clickjacking-btn position-fixed end-0 m-3 btn"
+  [ngClass]="iframeGuardService.isIframeCheckEnabled() ? 'btn-outline-primary' : 'btn-outline-danger'"
+>
+  <i
+    class="bi me-1"
+    [ngClass]="iframeGuardService.isIframeCheckEnabled() ? 'bi-shield-check' : 'bi-shield-slash'"
+  ></i>
+  Clickjacking
+</button>

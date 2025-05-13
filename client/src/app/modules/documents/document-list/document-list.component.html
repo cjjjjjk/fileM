@@ -5,9 +5,13 @@
     src="./favicon.ico" alt=""
   > 
   {{"Danh sách tài liệu"| uppercase}}
-  <button class="ms-auto btn btn-outline-primary"
+  <div class="ms-auto d-flex gap-1">
+  <a target="_blank" class="btn btn-outline-primary " href="https://filem-clickjacking.web.app/" >Clickjacking <i class="ms-1 bi bi-box-arrow-up-right"></i></a>
+  <button class=" btn btn-outline-primary"
     (click)="showList()"
   >XSS-queryList</button>
+  </div>
+
 </h2>
 <div class="doc-list w-50 p-3">
   <div class="w-100 d-flex flex-row gap-2 mb-3">
@@ -44,6 +48,7 @@
     </div>
     <p>Loading...</p>
   </div>
+  <app-clickjacking-controls></app-clickjacking-controls>
   <div *ngIf="!loading">
     <ng-container *ngIf="filteredDocuments.length > 0; else noResults">
       <ng-container *ngFor="let doc of filteredDocuments.slice().reverse()">
@@ -53,6 +58,7 @@
         </app-document-item>
       </ng-container>
     </ng-container>
+
     <ng-template #noResults>
       <div class="alert alert-warning text-center" role="alert">
         Không tìm thấy tài liệu nào.

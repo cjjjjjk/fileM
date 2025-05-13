@@ -4,15 +4,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { XssScriptsListComponent } from './components/xss-scripts-list/xss-scripts-list.component';
 import { XssListService } from './services/xss-list.services';
+import { ClickjackingControlsComponent } from './components/clickjacking-guard/clickjacking-controls/clickjacking-controls.component';
 
 @NgModule({
   declarations: [
-    XssScriptsListComponent
+    XssScriptsListComponent,
+    ClickjackingControlsComponent
   ],
   exports: [
     ReactiveFormsModule,
     FormsModule,
-    XssScriptsListComponent
+    XssScriptsListComponent,
+    ClickjackingControlsComponent
   ],
   imports: [
     CommonModule,

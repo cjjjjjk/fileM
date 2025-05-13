@@ -10,7 +10,7 @@ import { SharesModule } from '../shares/share.module';
 @NgModule({
   declarations: [
     DocumentListComponent,
-    DocumentItemComponent
+    DocumentItemComponent,
   ],
   imports: [
     CommonModule,
