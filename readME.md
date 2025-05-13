@@ -10,7 +10,7 @@ FileM là một ứng dụng quản lý tài liệu với giao diện người d
 - [Cài đặt Frontend (Angular)](#cài-đặt-frontend-angular)
 - [Cấu hình môi trường](#cấu-hình-môi-trường)
 - [Sử dụng](#sử-dụng)  
-- [Minh hoạ triển khai tấn công XSS và ClickJacking](#minh-hoạ-triển-khai-tấn-công-xss-và-clickjacking)  
+- [Minh hoạ triển khai tấn công XSS và ClickJacking](#minh-hoạ-tấn-công-xss-clickjacking)  
 - [Chạy ứng dụng](#chạy-ứng-dụng)
 - [Liên hệ](#liên-hệ)
 
@@ -112,6 +112,9 @@ Trước khi bắt đầu, bạn cần cài đặt các công cụ và phần m�
 ![image](https://github.com/user-attachments/assets/db704d3b-15dd-4eae-b0e4-26558e3e88bf)  
 Trang mô phỏng clickjacking  
 ![image](https://github.com/user-attachments/assets/c81bbf8c-af54-403f-96f3-da23cfe67f46)
+
+Block clickjacking
+![image](https://github.com/user-attachments/assets/73160574-a4c1-4d98-8afa-99c719fde331)
 
 
 ## Liên hệ
